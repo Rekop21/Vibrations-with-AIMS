@@ -26,7 +26,6 @@ def parseArguments():
     parser.add_argument("-mass",  "--mass", help="mass file, currently data from here not in use", type=str, default="masses.run_0.0025.dat")
     parser.add_argument("-o",  "--output", help="output file", type=str, default="intensity.dat")   
     parser.add_argument("-E", "--energy_file", help="Filename for the ionization energies. If left empty script will use energies from relaxations.", type=str, default="")
-    parser.add_argument("-fol", "--folders", help="List of folders for different electronic states. Default is automatic where folders will be detected automaticly. Folders wich have a xyz file which contains normal modes will be counted in. If it is needed to spesify certain files those should be given in a string separeted by commas. ex: 'neutral_0/,ion_0/", type=str, default="automatic")
     # Print version
     parser.add_argument("--version", action="version", version='%(prog)s - Version 1.0')
 

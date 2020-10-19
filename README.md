@@ -114,6 +114,8 @@ Now the first value is zero, but only thing that matters is the differences in t
 
 The output file is a list of energies and corresponding intensities for different transitions. There's also identifier which tells the final state associated with the transition.
 
+The limits "n_lim", "m_lim" and "S_lim" the possible energy file and the input files and temparature all have default values specified in the code. These values can also be changed when running the script. Thus no modification to the script is necessary. Only the right folders should be written in the script at the spot folders.
+
 ### Plotting results
 
 There's a script `plot_intensity.py` which can plot the data that `FCI.py` outputs. It can also calculate the shift from 0-0 peak caused by vibrations. In the bottom of the `plot_intensities.py` there's place where functions can be called to make plots.
