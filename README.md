@@ -73,6 +73,10 @@ There might be problems when relaxing the geometries. Try running `grep "Maximum
 
 If you have to force occupations in degenerate electron levels, be aware that AIMS usually chooses one of the states and you can't force hole to the other without running a risk that calculation doesn't converge. This means that for example in benzenes case *ion_2* and *ion_3* states will be identical as well as *ion_0* and *ion_1*.
 
+#### Vertical energies
+To produce the intensities for transities we need to calculate the energies for those transitions. To do this we need to calculate the vertical ionization energies. These are the energies of the molecule on the excited state but in the same geometry as the molecule on the neutral state. This calculation is done in the relaxation folders. For each molecule in the relaxation folder a new subfolder called vertical_energy should be created. Example: `relaxation/ion_oc_1/vertical_energy`. To this folder the  `geometry.in.next_step` from the  `relaxations/neutral_0` should be copied. And also the `control.in` for the corresponding state should be copied here. If "*force_occupation_projector*" is used then also the restart file should be copied. From the `control.in` file the "*relax_geometry*" line should be commented. After this aims should be ran on this folder. This should be done for every ionized state in the relaxation folders.
+
+
 ### Generating restart files
 
 Because calculations, where occupations are forced, need restart files and for restart file to work `geometry.in` files must be identical, we need 6N restart files per state (N is number of atoms). These files can be created by running "dummy" vibrational calculations with the control file of the ground state and the geometry file of the exited state.
@@ -136,13 +140,16 @@ By editing `directory_setup.sh`, change the name of the root directory to your l
 2. *Relaxation*\
 Make `control.in` files for all of your states and make one `geometry.in` to begin with. Copy these to their respective folders and run the relaxations without occupations. When AIMS is ready, copy `restart` file and run the relaxations with occupations.
 
-3. *Restart files*\
+3. *Vertical energies*\
+Copy needed files to the `vertical_energy` folders in subfolders of the relaxation folder (not for the neutral). Run relaxation calculations with the geometry of neutral state.
+
+4. *Restart files*\
 First run `copy_input.sh` in root directory. Then run the calculations in "*restart_files*".
 
-4. *Vibrational calculations*\
+5. *Vibrational calculations*\
 Run the calculations in "*vibrations*" directory.
 
-5. *Transitions*\
+6. *Transitions*\
 Check that settings are correct in `FCI.py` and then run it.
 
 ### List of scripts
