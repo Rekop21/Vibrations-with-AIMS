@@ -19,8 +19,8 @@ def parseArguments():
     # Optional arguments
     parser.add_argument("-T", "--temparature", help="Temparature", type=int, default=290)
     parser.add_argument("-S", "--S_lim", help="Limit for the Huang-Rhys constant for relevant modes", type=float, default=1e-4)
-    parser.add_argument("-m", "--m", help="Limitation for the combinations of the ground state.", type=int, default=2)
-    parser.add_argument("-n", "--n", help="Limitation for the combinations of the excited state.", type=int, default=2)
+    parser.add_argument("-m", "--m", help="Limitation for the combinations of the ground state.", type=int, default=4)
+    parser.add_argument("-n", "--n", help="Limitation for the combinations of the excited state.", type=int, default=3)
     parser.add_argument("-nm",  "--normal_modes", help="xyz file which contains normal modes", type=str, default="run.xyz")
     parser.add_argument("-freq",  "--frequencies", help="output file which contains frequencies in a list", type=str, default="vib_post_0.0025.out")
     parser.add_argument("-mass",  "--mass", help="mass file, currently data from here not in use", type=str, default="masses.run_0.0025.dat")
@@ -457,7 +457,7 @@ def main(filename, tot_energy_file=""):
     mu = get_reduced_masses(folders_v)                    
     norm_modes = get_normal_modes(folders_v)
     force_constants = get_force_constants(folders_v)           
-    T = get_transformation_matrix(norm_modes[1]) 
+    T = get_transformation_matrix(norm_modes[0]) 
     zeropoint_energies = get_zero_point_energies(folders_v)
     pos = get_positions(folders_v)
 
