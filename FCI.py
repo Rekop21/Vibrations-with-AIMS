@@ -25,9 +25,9 @@ def parseArguments():
     parser.add_argument("-S", "--S_lim", help="Limit for the Huang-Rhys constant for relevant modes", type=float, default=1e-4)
     parser.add_argument("-m", "--m", help="Limitation for the combinations of the ground state.", type=int, default=4)
     parser.add_argument("-n", "--n", help="Limitation for the combinations of the excited state.", type=int, default=3)
-    parser.add_argument("-nm",  "--normal_modes", help="xyz file which contains normal modes", type=str, default="run.xyz")
-    parser.add_argument("-freq",  "--frequencies", help="output file which contains frequencies in a list", type=str, default="vib_post_0.0025.out")
-    parser.add_argument("-mass",  "--mass", help="mass file, currently data from here not in use", type=str, default="masses.run_0.0025.dat")
+    parser.add_argument("-nm",  "--normal_modes", help="name of the xyz file which contains normal modes", type=str, default="run.xyz")
+    parser.add_argument("-freq",  "--frequencies", help="name of the output file which contains frequencies in a list", type=str, default="vib_post_0.0025.out")
+    parser.add_argument("-mass",  "--mass", help="name of the mass file, currently data from here not in use", type=str, default="masses.run_0.0025.dat")
     parser.add_argument("-o",  "--output", help="output file", type=str, default="intensity.dat")   
     parser.add_argument("-E", "--energy_file", help="Filename for the ionization energies. If left empty script will use energies from relaxations.", type=str, default="")
     # Print version
