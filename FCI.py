@@ -1,6 +1,10 @@
 # Arttu Hyvonen
 # 7/2019
 
+# modifications 
+# Reko Penttilä
+# 10/2020 
+
 import scipy.special as special
 from scipy.misc import factorial
 import numpy as np
